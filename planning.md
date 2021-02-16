@@ -2,6 +2,7 @@
 <h1> " An Exploration Into Sonnets" </h1>
 
 <h2> "We all have an inner poet, outward bound,,,</h2>
+<h3> This is a place for everyone to share their creative drive. </h3>
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVfYb7AOb0fmnhdFCqf90DU%2FTom-Erickson-Speaks%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
 

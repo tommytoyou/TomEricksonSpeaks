@@ -1,0 +1,19 @@
+<h1>Update a post</h1>
+
+<form action="/posts/edit" method="POST">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="<%=post.title%>" required>
+  </div>
+
+  <div class="form-group">
+    <input type="hidden" value="<%=post.id%>" name="postID">
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea type="text" class="form-control" id="content" name="content" required><%=post.content%></textarea>
+  </div>
+
+  <input type="submit" class="btn btn-primary">
+</form>

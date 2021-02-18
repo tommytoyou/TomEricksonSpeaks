@@ -4,6 +4,9 @@ const layouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('./config/ppConfig'); //
 const flash = require('connect-flash');
+// added
+const db = require('./models');
+const moment = require('moment');
 
 
 const app = express();
@@ -12,6 +15,7 @@ app.set('view engine', 'ejs');
 // Session 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const isLoggedIn = require('./middleware/isLoggedIn');
+const { post } = require('./controllers/auth');
 
 // MIDDLEWARE
 app.use(require('morgan')('dev'));
@@ -42,6 +46,21 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+//GET  / display all articles and their users
+app.get('/', async function(req, res) {
+  try{
+    res.render('main.index', {posts: await db.post.findAll({
+      include: [db.user]
+    })})
+  }catch(error) {
+    console.log(error.messsage)
+    res.status(400).render('main/404')
+  }
+})
+// bring in users and posts
+// app.use('/users', require('./controllers/auth'));
+app.use('/posts', require('./controllers/posts'));
+app.use('/comment', require('./controllers/comment'));
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
@@ -61,18 +80,5 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = server;
-
-
-
-// espn.com
-
-// basketball/college
-// basketball/nba
-// basketball/gleague
-// basketball/europe
-
-// football
-// baseball
-// ...
 
 

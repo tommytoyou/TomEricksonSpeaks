@@ -1,9 +1,13 @@
 nav ul li {
   text-decoration: none;
   display: inline-block;
-  margin-right: .3em;
+  margin-right: 1em;
 }
 
 h1 {
-  color: chartreuse;
+  color: rgb(110, 110, 105);
 }
+body {
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Fpoem-background.html&psig=AOvVaw3mcYgurJSa6dv3V1G7Q1gf&ust=1613835686416000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOim0sak9u4CFQAAAAAdAAAAABAO");
+  background-color: #cccccc;
+ }

@@ -49,9 +49,12 @@ app.use((req, res, next) => {
 //GET  / display all articles and their users
 app.get('/', async function(req, res) {
   try{
-    res.render('main.index', {posts: await db.post.findAll({
+    const postArray = await db.post.findAll({
       include: [db.user]
-    })})
+    })
+    console.log('Here is postArray')
+    console.log(postArray)
+    res.render('main/index', {posts: postArray })
   }catch(error) {
     console.log(error.messsage)
     res.status(400).render('main/404')
@@ -65,9 +68,9 @@ app.use('/comment', require('./controllers/comment'));
 // Controllers
 app.use('/auth', require('./controllers/auth'));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// app.get('/', (req, res) => {
+//   res.render('index');
+// });
 
 app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
@@ -76,7 +79,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
-  console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
+  console.log(`🎧 You know what it is ${PORT} 🎧`);
 });
 
 module.exports = server;

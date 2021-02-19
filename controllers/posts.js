@@ -33,7 +33,7 @@ router.post('/edit', async function(req, res){
     }
 })
 // GET /posts/new display form for creating new posts
-router.get('new', async function(req, res){
+router.get('/new', async function(req, res){
     try{
         //db.post.findAll(
             res.render('posts/new', {users: await db.user.findAll() })
@@ -59,7 +59,7 @@ router.get('/edit/:id', async function(req, res){
 
 // get /posts/:id - display a specific post and its user
 router.get('/:id', async function(req, res){
-    try{
+    try{//this is my show.ejs i still have to build out the get route for blog chain
         res.render('posts/show', {post: await db.post.findOne({
            where: { id: req.params.id },
            include: [db.user, db.comment] 

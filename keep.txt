@@ -1,0 +1,22 @@
+<!-- this chunk of code does not work until we have data in db-->
+      <!-- <% posts.forEach(function(a) { %>
+        <div class="well">
+          <h2>
+          <% if (!a.user) { %>
+            <a href="/posts/<%= a.id %>"><%= a.title %></a>
+          <% }else { %>
+            <a href="/posts/<%= a.id %>"><%= a.title %></a>
+            <small>by <%= a.user.getName() %></small>
+          </h2>
+          <p>
+            <strong><%= moment(a.createdAt).calendar() %></strong>
+          </p>
+        </div> 
+         <% } %<
+      <% }) %> -->
+
+<!-- // // // // // // -->
+
+    static associate(models) {
+        models.comment.belongsTo(models.post)
+    }

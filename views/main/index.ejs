@@ -5,24 +5,26 @@
           <img class="hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/D%C3%BClmen%2C_Hausd%C3%BClmen%2C_Heubach_--_2019_--_3260.jpg/500px-D%C3%BClmen%2C_Hausd%C3%BClmen%2C_Heubach_--_2019_--_3260.jpg">
         </div>
       </div>
-      <h1>Creative Content From Contributors Like You</h1>
-  
+      <h3>Creative Content From Contributors Like You</h3>
+<!-- this chunk of code does not work until we have data in db -->
       <% posts.forEach(function(a) { %>
         <div class="well">
           <h2>
+          <% if (!a.user) { %>
             <a href="/posts/<%= a.id %>"><%= a.title %></a>
-            <small>by <%= a.user.getFullName() %></small>
+          <% }else { %>
+            <a href="/posts/<%= a.id %>"><%= a.title %></a>
+            <small>by <%= a.user.getName() %></small>
           </h2>
           <p>
             <strong><%= moment(a.createdAt).calendar() %></strong>
           </p>
-        </div>
+        </div> 
+         <% } %>
       <% }) %>
-  
     </div>
     <div class="col-sm-4">
-      <h2>For You</h2>
-      <p>This is a place for you to contribute your creative energy to the world.</p>
+
     </div>
   </div>
   

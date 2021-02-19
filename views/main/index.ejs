@@ -14,11 +14,11 @@
             <a href="/posts/<%= a.id %>"><%= a.title %></a>
           <% }else { %>
             <a href="/posts/<%= a.id %>"><%= a.title %></a>
-            <small>by <%= a.user.getName() %></small>
+            <small>by <%= a.user.name %></small>
           </h2>
-          <p>
-            <strong><%= moment(a.createdAt).calendar() %></strong>
-          </p>
+
+
+          
         </div> 
          <% } %>
       <% }) %>

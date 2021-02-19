@@ -8,7 +8,7 @@ router.post('/', async function (req, res) {
             title: req.body.title,
             genre: req.body.genre,
             content: req.body.content,
-            authorId: req.body.authorId
+            userId: req.user.id
         })
         res.redirect('/')
     }   catch (error) {
@@ -24,7 +24,7 @@ router.post('/edit', async function(req, res){
             title: req.body.title,
             genre: req.body.genre,
             content: req.body.content,
-            userId: req.body.authorId
+            userId: req.body.userId
         },{returning: true, where: {id: req.body.postID}})
         res.redirect(`/articles/${req.body.postID}`)
     }catch(error){
@@ -60,6 +60,12 @@ router.get('/edit/:id', async function(req, res){
 // get /posts/:id - display a specific post and its user
 router.get('/:id', async function(req, res){
     try{//this is my show.ejs i still have to build out the get route for blog chain
+        let post = await db.post.findOne({
+            where: { id: req.params.id },
+            include: [db.user, db.comment] 
+         })
+         console.log(JSON.stringify(post))
+         console.log(post.user)
         res.render('posts/show', {post: await db.post.findOne({
            where: { id: req.params.id },
            include: [db.user, db.comment] 

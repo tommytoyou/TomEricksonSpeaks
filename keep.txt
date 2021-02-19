@@ -20,3 +20,26 @@
     static associate(models) {
         models.comment.belongsTo(models.post)
     }
+
+    <h1> Contributor: <%= user.getName() %></h1>
+
+<% if(user && user.posts) { %>
+    <% user.posts.forEach(function(a) { %>
+        <div class='well'>
+            <h3>
+                <a href='/posts/<%= a.id %>'><%= a.title %></a>
+            </h3>
+        </div>
+    <%  }) %>
+<% } else { %>
+    <h3>No Sonnets Yet</h3>
+<% } %>
+
+
+          <!-- <p>// get the time first in server then pass as another var
+            <strong><%= moment(a.createdAt).calendar() %></strong>
+          </p> -->
+
+
+
+          <p><%= user.profile %></p>

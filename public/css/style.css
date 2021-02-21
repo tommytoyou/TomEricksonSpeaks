@@ -3,6 +3,12 @@ nav ul li {
   display: inline-block;
   margin-right: 1em;
 }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 h1 {
   color: rgb(110, 110, 105);

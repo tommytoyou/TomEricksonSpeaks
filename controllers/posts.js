@@ -75,7 +75,21 @@ router.get('/:id', async function(req, res){
         res.status(400).render('main/404')
     }
 })
-
+router.post('/:id', async function(req, res) {
+    try{
+        let comment = await db.comment.create({
+            userId: req.body.userId,
+            postId: req.body.postId,
+            comment: req.body.comment,
+            include: [db.user, db.post] 
+        })
+        console.log(comment)
+        res.redirect(`/posts/${postId}`)
+    }catch(error) {
+        console.log(error.message)
+        res.status(400).render('main/404')
+    }
+})
 
 
 module.exports = router

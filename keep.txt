@@ -43,3 +43,35 @@
 
 
           <p><%= user.profile %></p>
+
+
+
+
+
+                    <li>How do I love thee? Let me count the ways. (a)</li>
+          <li>I love thee to the depth and breadth and height (b)</li>
+          <li>My soul can reach, when feeling out of sight (b)</li>
+          <li>For the ends of being and ideal grace. (a)</li>
+          <li>I love thee to the level of every day’s (a)</li>
+          <li>Most quiet need, by sun and candle-light. (b)</li>
+          <li>I love thee freely, as men strive for right; (b)</li>
+          <li>I love thee purely, as they turn from praise. (a)</li>
+          <li>I love thee with the passion put to use (c)</li>
+          <li>In my old griefs, and with my childhood’s faith. (d)</li>
+          <li>I love thee with a love I seemed to lose (c)</li>
+          <li>With my lost saints. I love thee with the breath, (d)</li>
+          <li>Smiles, tears, of all my life; and, if God choose, (c)</li>
+          <li>I shall but love thee better after death. (d)</li>
+
+          // make a loop for comments
+<!-- <form action="/posts/<%= post.id %>/comments" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Comment</label>
+      <input type="text" class="form-control" id="content" name="content" required>
+    </div>
+    <a action <%= posts.id class="btn btn-primary">Continue the discussion%></a>
+  </form> -->

@@ -1,12 +1,33 @@
-<h1>Creator: <%= post.user.name %></h1>
-
+<h1>Writer Extraordinaire: <%= post.user.name %></h1>
+<h5> Sonnet </h5>
 <p> <%= post.content %></p>
+<% post.comments.forEach(function(comment) { %>
+    <div class="well">
+      <p>
+        "<%= comment.content %>" -<%= comment.name %>
+      </p>
+   </div>
+   <% }) %>
+<!-- <a href='/posts/new' class='btn btn-primary'>Please share your creativity</a>
+ <div class="comment-form_field">
+    <textarea placeholder="Add to the discussion" onfocus="handleFocus(event)" onkeyup="handleKeyUp(event)" onkeydown="handleKeyDown(event)" oninput="handleChange(event)" id="text-area" required="required" class="crayons-textfield comment-textarea crayons-textfield--ghost" aria-label="Add a comment to the discussion" name="comment[body_markdown]" style="height: 103px;"></textarea>
+<br />
+    <a action= = posts.id  class='btn btn-primary'> Continue the discussion </a>
+</div> -->
 
-<a href='posts.new' class='btn btn-primary'>Please share your creativity</a>
 
+  <form action="/posts/<%= post.id %>" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Comment</label>
+      <input type="text" class="form-control" id="content" name="comment" required>
+      <input type="hidden" id="userId" name="userId" value="<% post.user.id %>">
+      <input type="hidden" id="postId" name="postId" value="<% post.id %>">
+      
+      <input type="submit" class="btn btn-primary">
+    </div>
 
-<hr />
-
-<h2> Sonnets </h2>
-
-
+  </form>

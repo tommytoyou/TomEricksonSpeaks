@@ -4,7 +4,7 @@
 <% post.comments.forEach(function(comment) { %>
     <div class="well">
       <p>
-        "<%= comment.content %>" -<%= comment.name %>
+        "<%= comment.comment %>" -<%= comment.name %>
       </p>
    </div>
    <% }) %>
@@ -24,8 +24,8 @@
     <div class="form-group">
       <label for="content">Comment</label>
       <input type="text" class="form-control" id="content" name="comment" required>
-      <input type="hidden" id="userId" name="userId" value="<% post.user.id %>">
-      <input type="hidden" id="postId" name="postId" value="<% post.id %>">
+      <input type="hidden" id="userId" name="userId" value="<%= post.user.id %>">
+      <input type="hidden" id="postId" name="postId" value="<%= post.id %>">
       
       <input type="submit" class="btn btn-primary">
     </div>

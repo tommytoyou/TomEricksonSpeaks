@@ -5,12 +5,12 @@
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "database": "express_auth_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL",
+    "use_env_variable": "express_auth_dev",
     "dialect": "postgres",
     "dialectOptions": {
         "ssl": {

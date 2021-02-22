@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../models');
+const { post } = require('./comment');
 const router = express.Router();
 // create a new 'post'
 router.post('/', async function (req, res) {
@@ -26,7 +27,7 @@ router.post('/edit', async function(req, res){
             content: req.body.content,
             userId: req.body.userId
         },{returning: true, where: {id: req.body.postID}})
-        res.redirect(`/articles/${req.body.postID}`)
+        res.redirect(`/posts/${req.body.postID}`)
     }catch(error){
         console.log(error.message)
         res.status(400).render('main/404')
@@ -64,8 +65,7 @@ router.get('/:id', async function(req, res){
             where: { id: req.params.id },
             include: [db.user, db.comment] 
          })
-         console.log(JSON.stringify(post))
-         console.log(post.user)
+
         res.render('posts/show', {post: await db.post.findOne({
            where: { id: req.params.id },
            include: [db.user, db.comment] 
@@ -78,15 +78,14 @@ router.get('/:id', async function(req, res){
 router.post('/:id', async function(req, res) {
     try{
         let comment = await db.comment.create({
+            name: req.body.name,
             userId: req.body.userId,
             postId: req.body.postId,
             comment: req.body.comment,
             include: [db.user, db.post] 
         })
-        console.log(comment)
-        res.redirect(`/posts/${postId}`)
+        res.redirect(`/posts/${comment.postId}`)
     }catch(error) {
-        console.log(error.message)
         res.status(400).render('main/404')
     }
 })

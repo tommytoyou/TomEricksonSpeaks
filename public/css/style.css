@@ -9,6 +9,12 @@ img {
   margin-right: auto;
   width: 50%;
 }
+#lb {
+  background img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fpeterkmiecik%2Fart%2FFree-Stock-Wheat-Fields-Grain-Plains-Mountains-Sky-758099843&psig=AOvVaw2QGYrRnEeGct4fVGDsk5vQ&ust=1613868290941000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjz54Ge9-4CFQAAAAAdAAAAABAE")
+      no repeat;
+      background-size: cover;
+      opacity: 0.5;
+}
 
 h1 {
   color: rgb(110, 110, 105);

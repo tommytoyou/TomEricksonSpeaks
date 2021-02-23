@@ -75,3 +75,4 @@
     </div>
     <a action <%= posts.id class="btn btn-primary">Continue the discussion%></a>
   </form> -->
+      "test": "mocha",
